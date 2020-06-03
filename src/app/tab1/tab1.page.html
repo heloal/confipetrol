@@ -1,17 +1,195 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="color">
+ 
+  <div class="sign-container" *ngIf="paccion==0">
+    
+    <div class="header"> 
+      <div class="ion-text-center ficha">Ficha Sintomalogia</div>        
+       
+        <ion-card>
+          <ion-card-content class="ion-content-card">
+              {{declaracion.termino}}
+          </ion-card-content>
+        </ion-card>
+    </div>
+    <ion-item class="check">
+      <ion-label>Estoy de Acuerdo</ion-label>
+      <ion-checkbox checked slot="start"></ion-checkbox>
+    </ion-item>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <div class="ion-text-center">
+      <ion-button class="ion-button" (click)="ira(1)">
+        Iniciar       
+      </ion-button>      
+    </div>
+  </div>
+
+  <div class="sign-container" *ngIf="paccion==1">
+    <ion-header class="ion-header">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="#" (click)="ira(0)"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Ficha Sintomalogia</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <div class="header">
+      <div class="title ion-text-center">    
+        <h3>Completa los siguientes campos para iniciar la Autoevaluación</h3> 
+      </div>
+      <div class="title ion-text-center">
+          <ion-label class="ion-text-center">Puesto de Trabajo</ion-label>
+        <ion-item class="ion-text-center">
+          <ion-input type="text" placeholder="Ingrese su puesto de trabajo" name="puesto" [(ngModel)]="puesto"></ion-input>
+        </ion-item>
+        <ion-label class="ion-text-center">Peso</ion-label>
+        <ion-item class="ion-text-center">
+          <ion-input type="text" placeholder="Ingrese su peso" name="peso" [(ngModel)]="peso"></ion-input>
+        </ion-item>
+        <ion-list> 
+          <ion-radio-group (ionChange)="puestoSelected($event)">
+            <ion-item *ngFor="let serv of Servicio" >
+              <ion-label>{{serv.name}}</ion-label>
+              <ion-radio slot="start" color="success"  value="{{serv.id}}"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>   
+      </div> 
+                 
+    </div>   
+
+    <div class="ion-text-center">
+      <ion-button style="width: 20%;height: 20%;" fill="clear" (click)="ira(2)">
+        <img src="https://image.flaticon.com/icons/svg/1251/1251273.svg" alt="">  
+      </ion-button>      
+    </div>
+  </div>
+  
+  <div class="sign-container" *ngIf="paccion==2">
+   <ion-grid fixed>
+     <ion-title >{{seccion_preg2.title}}</ion-title>
+
+     <ion-row>
+      <ion-col size="8"></ion-col>
+      <ion-col class="colsi" size="2">SI</ion-col>
+      <ion-col class="colno" size="2">NO</ion-col>
+     </ion-row>
+     <ion-row *ngFor="let a of seccion_preg2.detail;let i=index" >
+       <ion-col size="8">{{a.preg_id}} - {{a.name}}</ion-col>
+       <ion-radio-group  (ionChange)="onSelected(a,$event)" class="radio" name="cx" [(ngModel)]="a.resp">
+        <ion-col size="2">
+              <ion-radio class="radioselect" value="1"></ion-radio>
+        </ion-col>
+        <ion-col size="2">
+            <ion-radio class="radioselect"  value="0"></ion-radio>
+        </ion-col>       
+       </ion-radio-group>
+       
+       <i-col size=12 *ngIf="a.resp==1">
+        <ion-input type="text" name="aclara" [(ngModel)]="a.aclara" placeholder="Especifique"></ion-input>
+      </i-col>
+     </ion-row>
+   </ion-grid>
+    <div class="ion-text-center">
+      <ion-button style="width: 20%;height: 20%;" fill="clear" (click)="ira(3)">
+        <img src="https://image.flaticon.com/icons/svg/1251/1251273.svg" alt="">  
+      </ion-button>      
+    </div>
+  </div>
+
+  <div class="sign-container" *ngIf="paccion==3">
+    <ion-grid fixed>
+      <ion-title >{{seccion_preg1.title}}</ion-title>
+      <ion-row>
+       <ion-col size="8"></ion-col>
+       <ion-col class="colsi" size="2">SI</ion-col>
+       <ion-col class="colno" size="2">NO</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let a of seccion_preg1.detail;let i=index">
+        <ion-col size="8">{{a.preg_id}} - {{a.name}}</ion-col>
+        <ion-radio-group (ionChange)="onSelected(a,$event)" class="radio" name="cx" [(ngModel)]="a.resp" class="radio">
+         <ion-col size="2">
+               <ion-radio class="radioselect" value="1"></ion-radio>
+         </ion-col>
+         <ion-col size="2">
+             <ion-radio class="radioselect" value="0"></ion-radio>
+         </ion-col>
+        </ion-radio-group>
+       <i-col size=12 *ngIf="a.resp==1">
+        <ion-input type="text" name="aclara" [(ngModel)]="a.aclara" placeholder="Especifique"></ion-input>
+      </i-col>
+      </ion-row>
+    </ion-grid>
+     <div class="ion-text-center">
+      <ion-button style="width: 20%;height: 20%;" fill="clear" (click)="ira(4)">
+        <img src="https://image.flaticon.com/icons/svg/1251/1251273.svg" alt="">  
+       </ion-button>      
+     </div>
+  </div>
+
+  <div class="sign-container" *ngIf="paccion==4">
+    <ion-grid fixed>
+      <ion-title >{{seccion_preg4.title}}</ion-title>
+      <ion-row>
+       <ion-col size="8"></ion-col>
+       <ion-col class="colsi" size="2">SI</ion-col>
+       <ion-col class="colno" size="2">NO</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let a of seccion_preg1.detail;let i=index">
+        <ion-col size="8">{{a.preg_id}} - {{a.name}}</ion-col>
+        <ion-radio-group (ionChange)="onSelected(a,$event)" class="radio" name="cx" [(ngModel)]="a.resp" class="radio">
+         <ion-col size="2">
+               <ion-radio class="radioselect" value="1"></ion-radio>
+         </ion-col>
+         <ion-col size="2">
+             <ion-radio class="radioselect" value="0"></ion-radio>
+         </ion-col>
+        </ion-radio-group>
+       <i-col size=12 *ngIf="a.resp==1">
+        <ion-input type="text" name="aclara" [(ngModel)]="a.aclara" placeholder="Especifique"></ion-input>
+      </i-col>
+      </ion-row>
+    </ion-grid>
+     <div class="ion-text-center">
+      <ion-button style="width: 20%;height: 20%;" fill="clear" (click)="ira(5)">
+        <img src="https://image.flaticon.com/icons/svg/1251/1251273.svg" alt="">  
+       </ion-button>      
+     </div>
+   </div>
+
+   <div class="sign-container" *ngIf="paccion==5">
+    <ion-grid fixed>
+      <ion-title >{{seccion_preg3.title}}</ion-title>
+      <ion-row>
+       <ion-col size="8"></ion-col>
+       <ion-col class="colsi" size="2">SI</ion-col>
+       <ion-col class="colno" size="2">NO</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let a of seccion_preg3.detail;let i=index">
+        <ion-col size="8">{{a.preg_id}} - {{a.name}}</ion-col>
+        <ion-radio-group (ionChange)="onSelected(a,$event)" class="radio" name="cx" [(ngModel)]="a.resp" class="radio">
+         <ion-col size="2">
+               <ion-radio class="radioselect" value="1"></ion-radio>
+         </ion-col>
+         <ion-col size="2">
+             <ion-radio class="radioselect" value="0"></ion-radio>
+         </ion-col>
+        </ion-radio-group>
+          
+       <i-col size=12 *ngIf="a.resp==1">
+        <ion-input type="text" name="aclara" [(ngModel)]="a.aclara" placeholder="Especifique"></ion-input>
+      </i-col>
+      </ion-row>
+    </ion-grid>
+     <div class="ion-text-center">
+       <ion-button color="primary" (click)="registrarFicha()">
+         Registrar
+       </ion-button>      
+     </div>
+   </div>
+
+   
+
+  
+
 </ion-content>

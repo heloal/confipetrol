@@ -1,17 +1,131 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="color">
+    <div class="sign-container" *ngIf="estado_result===0">
+        <div class="header">        
+            <div class="title ion-text-center">    
+              <ion-text color="primary">
+                <h1>Mi Pase</h1>
+              </ion-text>   
+              <img src="../../assets/img/img_campana_alerta.png" alt="">
+            </div>
+    
+            <div class="title ion-text-center"> 
+              <span style="font-size: 30px;">¡Hola!</span><br>
+            </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+            <div class="title ion-text-center">
+              <p>Se ha verificado que aun no has realizado el registro
+                de tu pase</p>
+            </div>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+            <div class="title ion-text-center">
+              <h3>Ten en cuenta que sin tu pase no podras realizar el ingreso a las Instalaciones
+                y/o Oficinas.
+              </h3>
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="sign-container" *ngIf="estado_pase==0">
+      <div class="header">
+        <div class="title ion-text-center">    
+          <ion-text color="primary">
+            <h2>Pase</h2>
+            <h2>de Ingreso</h2>
+          </ion-text>   
+        </div>
+
+        <ion-card>
+          <ion-card-content>
+            <div class="title ion-text-center">
+             Nombres y Apellidos
+            </div>
+            <div class="title ion-text-center">
+             {{pase.detail.nombre}}
+             </div>
+             <div class="title ion-text-center">
+              Nro Documento
+             </div>
+             <div class="title ion-text-center">
+              {{pase.detail.nrodoc}}
+             </div>
+             <div class="title ion-text-center">
+              Puesto de Trabajo
+             </div>
+             <div class="title ion-text-center">
+              {{pase.detail.puesto}}
+             </div>
+             <div class="title ion-text-center">
+              Lugar de Desplazamiento
+             </div>
+             <div class="title ion-text-center">
+              {{pase.detail.servicio}}
+             </div>
+          </ion-card-content>
+        </ion-card>
+
+        <div class="sign-container" >
+          <div class="title ion-text-center">      
+            <img src="../../assets/img/success.png" alt="">
+          </div>
+        </div>
+        
+
+      </div>
+    </div>
+
+
+    <div class="sign-container" *ngIf="estado_pase==1">
+      <div class="header">
+        <div class="title ion-text-center">    
+          <ion-text color="primary">
+            <h2>Pase</h2>
+            <h2>de Ingreso</h2>
+          </ion-text>   
+        </div>
+
+        <ion-card>
+          <ion-card-content>
+            <div class="title ion-text-center">
+             Nombres y Apellidos
+            </div>
+            <div class="title ion-text-center">
+             {{pase.detail.nombre}}
+             </div>
+             <div class="title ion-text-center">
+              Nro Documento
+             </div>
+             <div class="title ion-text-center">
+              {{pase.detail.nrodoc}}
+             </div>
+             <div class="title ion-text-center">
+              Puesto de Trabajo
+             </div>
+             <div class="title ion-text-center">
+              {{pase.detail.puesto}}
+             </div>
+             <div class="title ion-text-center">
+              Lugar de Desplazamiento
+             </div>
+             <div class="title ion-text-center">
+              {{pase.detail.servicio}}
+             </div>
+          </ion-card-content>
+        </ion-card>
+
+        <div class="sign-container" >
+          <div class="title ion-text-center">      
+            <img src="../../assets/img/error.png" alt="">
+          </div>
+        </div>
+
+        <div class="sign-container" >
+            <ion-text color="primary">
+              <h1>{{pase.detail.mensaje}}</h1>
+            </ion-text>
+        </div>
+        
+
+      </div>
+    </div>
 </ion-content>

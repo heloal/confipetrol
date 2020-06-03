@@ -1,0 +1,193 @@
+
+  ion-content.background{
+    --background: url(../../../assets/img/img_fondo_login.png) 0 0/100% 100% no-repeat;
+  }
+
+.sign-container {
+    //background-image: url(../../../assets/img/img_fondo_login.png) 0 0/100% 100% no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+
+    .card{
+      border-radius: 20px;
+    }
+
+    .card-subtitle{
+      font-size: 16px;
+      color: #757575;
+    }
+    .ion-input{
+      font-size: 16px;
+      color: #757575;
+    }
+    .header {
+        flex: 50px;
+        .title {
+           
+            h1{
+              margin-top: 0px;
+              font-size: 14px;
+              color: white;
+              padding-top: 10px;
+              margin-left: 100px;
+              margin-right: 100px;
+            }    
+            padding-top: 120px;
+            img {
+                width: 100px;
+            }
+        }
+    }
+    .login-container {
+        flex: 2;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 150px;
+        padding-top: 100px;
+    }
+  
+    .form {
+        --background: none;
+        background: none;
+        max-width: 320px;
+        margin: 0 auto;
+  
+        ion-item {
+            //--background: #FAFAFA;
+            //--border-radius: 4px;
+            //--border-color: transparent !important;
+            --highlight-height: 0;
+            color: #FAFAFA ;
+            margin-bottom: 15px;
+  
+            ion-icon {
+                color: #FAFAFA ;
+            }
+        }
+    }
+  
+    .sign-up-container {
+        position: absolute;
+        bottom: 0;
+        height: 120px;
+        width: 100%;
+        padding-top: 18px;
+        transition: all 1s;
+        border-radius: 85% 85% 0 0 / 30%;
+        overflow: hidden;
+  
+        &.active {
+            height: calc(100% - 180px);
+        }
+        
+        .toggle-text {
+            color: #FAFAFA;
+            font-size: 14px;
+            margin-bottom: 0px;
+            
+        }
+  
+        .form {
+            ion-item {
+                --background: #2bc1b1;
+            }
+        }
+    }
+  }
+
+  .gradient-1 {
+    --background: linear-gradient(180deg, rgba(132,163,183,1) 0%, rgba(97,135,157,1) 100%);
+    background: linear-gradient(180deg, rgba(132,163,183,1) 0%, rgba(97,135,157,1) 100%);
+  }
+  .gradient-2 {
+    --background: linear-gradient(180deg, rgba(35,224,200,1) 0%, rgba(73,180,181,1) 100%);
+    background: linear-gradient(180deg, rgba(35,224,200,1) 0%, rgba(73,180,181,1) 100%);
+  }
+
+  .register-button{
+    color: #004B9E;
+    font-size: 14px;
+  }
+
+  .recomendaciones.button{
+    color: #FAFAFA;
+    --color: #FAFAFA; 
+    --border-radius: #FAFAFA;
+    --border-color: #FAFAFA;
+    --border-radius: 6px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  ion-grid{
+    //padding-bottom: 70px;
+    color: #FAFAFA;
+
+  }
+  
+  .green-button {
+    --background:#004B9E;
+    color: #FFF;
+    //--border-radius: 12px;
+    font-size: 17px;
+    height: 40px;
+    
+  }
+  .gray-button {
+    --background: rgba(97,135,157,1);
+    color: #FFF;
+    padding-bottom: 10px;
+    font-size: 20px;
+  }
+  .roundedInput {
+    --border-color: white;
+    --border-radius: 12px;
+    --border-width: 1px;
+    --box-shadow: 2px white;
+    --highlight-height: 0;
+    --background:auto;
+   }
+   .roundedInput.ion-invalid.item-has-focus {
+
+    --border-color: var(--ion-color-danger-shade);
+  }
+  
+  .roundedInput.ion-valid.item-has-focus {
+    --border-color: var(--ion-color-success-shade);
+  }
+  
+  .roundedInput.ion-invalid.ion-dirty {
+    --border-color: var(--ion-color-danger-shade);
+  }
+  
+  .roundedInput.ion-valid.ion-dirty {
+    --border-color: var(--ion-color-success-shade);
+  }
+  
+  .fade-in {
+    animation: fadein 2s;
+    font-size: 17px;
+    color: #FF7900;
+  }
+  .fade-out {
+    animation: fadeout 1s;
+  }
+  
+  @keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+  }
+  @keyframes fadeout {
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
+    }
+  }

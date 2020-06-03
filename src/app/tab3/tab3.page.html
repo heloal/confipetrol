@@ -1,17 +1,49 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen="true" slot="fixed" >
+    <div class="card">
+    
+      <div class="card-body">
+        <div class="user-meta ion-text-center">
+          <h5 class="country">Nombres y Apellidos</h5>
+          <h3 class="playername">{{user.nombres}}</h3>
+        </div>
+      </div>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+
+      <div class="card-body">
+        <div class="user-meta ion-text-center">
+          <h5 class="country">N° Documento</h5>
+          <h3 class="playername">{{user.nrodoc}}</h3>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="user-meta ion-text-center">
+          <h5 class="country">Fecha Nacimiento</h5>
+          <h3 class="playername">{{user.fechanac}}</h3>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="user-meta ion-text-center">
+          <h5 class="country">N° Telefono</h5>
+          <h3 class="playername">{{user.nrotelf}}</h3>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="user-meta ion-text-center">
+          <h5 class="country">Direccion</h5>
+          <h3 class="playername">{{user.direccion}}</h3>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="user-meta ion-text-center">
+          <h5 class="country">Email</h5>
+          <h3 class="playername">{{user.email}}</h3>
+        </div>
+      </div>
+
+    </div>
 </ion-content>
